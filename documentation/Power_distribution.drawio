@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.9">
   <diagram name="Page-1" id="fJ8kLOVQ-8MPeX9WUwBI">
-    <mxGraphModel dx="3547" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="3356" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -75,8 +75,8 @@
         <mxCell id="xrBsezdB9awclJO1hO8Q-23" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Use USB 2.0 for data. Need to use a Y-connector to supply power (requires 5V, 1.5A max) unless it is the only connection&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="340" y="490" width="370" height="30" as="geometry" />
         </mxCell>
-        <UserObject label="https://shop.luxonis.com/products/oak-y-adapter?srsltid=AfmBOooMflaBBy83PglXk635kWr5sSql4LRKLbsJHq60fqjr2JVSk7K6" link="https://shop.luxonis.com/products/oak-y-adapter?srsltid=AfmBOooMflaBBy83PglXk635kWr5sSql4LRKLbsJHq60fqjr2JVSk7K6" id="xrBsezdB9awclJO1hO8Q-24">
-          <mxCell style="text;whiteSpace=wrap;fontSize=10;" vertex="1" parent="1">
+        <UserObject label="Y-connector: https://shop.luxonis.com/products/oak-y-adapter?srsltid=AfmBOooMflaBBy83PglXk635kWr5sSql4LRKLbsJHq60fqjr2JVSk7K6" link="https://shop.luxonis.com/products/oak-y-adapter?srsltid=AfmBOooMflaBBy83PglXk635kWr5sSql4LRKLbsJHq60fqjr2JVSk7K6" id="xrBsezdB9awclJO1hO8Q-24">
+          <mxCell style="text;whiteSpace=wrap;fontSize=10;fontStyle=1" vertex="1" parent="1">
             <mxGeometry x="670" y="540" width="370" height="60" as="geometry" />
           </mxCell>
         </UserObject>

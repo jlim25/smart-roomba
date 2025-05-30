@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.9">
   <diagram name="Page-1" id="fJ8kLOVQ-8MPeX9WUwBI">
-    <mxGraphModel dx="3951" dy="810" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="3720" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -295,7 +295,7 @@
         <mxCell id="l4sSemHRtwMzd-lMpt-U-42" value="Single i2C to STM32, 4 GPIOs&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1705" y="910" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="l4sSemHRtwMzd-lMpt-U-45" value="i2C to STM32, 1 GPIO" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="l4sSemHRtwMzd-lMpt-U-45" value="SPI to STM32, 1 GPIO" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1915" y="910" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="l4sSemHRtwMzd-lMpt-U-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="l4sSemHRtwMzd-lMpt-U-49" target="l4sSemHRtwMzd-lMpt-U-50">

@@ -1,20 +1,104 @@
-# Introduction
+# Smart Roomba MCU Application
 
-# Hardware Setup
-## Prerequisities
+This is the microcontroller firmware for the Smart Roomba project, built on the Zephyr RTOS.
 
+## Overview
 
-# Software Setup
-## Prerequisites
+The Smart Roomba MCU application controls the low-level hardware functions of the robotic vacuum cleaner, including:
+- Motor control for movement and suction
+- Sensor data collection (distance, bumpers, etc.)
+- Communication with the Raspberry Pi main controller
+- Battery management
+- Safety systems
+
+## Hardware Setup
+
+### Prerequisites
+
+- STM32-based development board (or compatible)
+- Development tools for flashing and debugging
+- Power supply and connection cables
+
+## Software Setup
+
+### Prerequisites
+
 | Tools    | Version |
 | -------- | ------- |
-| Cmake    | 3.28.3  |
+| CMake    | 3.28.3  |
 | Python   | 3.12.3  |
 | Device Tree Compiler (DTC)   | 1.7.0   |
+| West     | Latest  |
+| Zephyr SDK | Latest |
 
+### Building the Application
 
-## One-time Setup
+1. **Initialize the workspace** (if not already done):
+   ```bash
+   cd /home/jacky/git/zephyr-workspace
+   west init --local smart-roomba/mcu
+   west update
+   ```
 
+2. **Build for your target board**:
+   ```bash
+   cd smart-roomba/mcu
+   west build -b <your_board_name>
+   ```
+   
+   For example, to build for an STM32 Nucleo board:
+   ```bash
+   west build -b nucleo_f411re
+   ```
 
-# Build Process
+3. **Flash to hardware**:
+   ```bash
+   west flash
+   ```
+
+4. **Build for emulation** (testing):
+   ```bash
+   west build -b qemu_cortex_m3
+   west build -t run
+   ```
+
+### Configuration
+
+- **prj.conf**: Contains Kconfig options for enabling/disabling features
+- **app.overlay**: Device tree overlay for hardware-specific configurations
+- **CMakeLists.txt**: Build system configuration
+
+### Application Structure
+
+```
+mcu/
+├── CMakeLists.txt          # Build configuration
+├── prj.conf               # Kconfig settings
+├── app.overlay            # Device tree overlay
+├── VERSION                # Version information
+├── west.yml              # West manifest
+├── README.md             # This file
+└── src/
+    └── main.c            # Main application code
+```
+
+### Development
+
+The application currently implements a basic LED blink example with logging. 
+You can extend it by adding:
+
+- Motor control drivers
+- Sensor interfaces (I2C, SPI, ADC)
+- Communication protocols (UART, CAN, etc.)
+- Real-time control algorithms
+- Power management features
+
+### Debugging
+
+Enable debug logging by setting in `prj.conf`:
+```
+CONFIG_LOG_DEFAULT_LEVEL=4
+```
+
+View logs through the serial console or debugging interface.
 

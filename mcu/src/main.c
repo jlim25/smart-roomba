@@ -1,7 +1,10 @@
-/*
- * Copyright (c) 2025 Smart Roomba Project
- *
- * SPDX-License-Identifier: Apache-2.0
+/**
+ * @file    main.c
+ * @brief   Smart Roomba MCU main file
+ * @author  Jacky Lim
+ * @date    June 2025
+ * @details This file initializes the LEDs on the STM32F4 Discovery board
+ * 
  */
 
 #include <zephyr/kernel.h>

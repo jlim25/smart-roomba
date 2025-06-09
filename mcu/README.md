@@ -93,6 +93,9 @@ You can extend it by adding:
 - Real-time control algorithms
 - Power management features
 
+### General Style
+Try to follow Linux kernel coding style. See [link](https://docs.zephyrproject.org/latest/contribute/style/code.html). Also, [general coding style](https://docs.zephyrproject.org/latest/contribute/style/index.html).
+
 ### Debugging
 
 Enable debug logging by setting in `prj.conf`:

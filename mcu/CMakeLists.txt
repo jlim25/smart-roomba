@@ -15,3 +15,6 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(smart_roomba_mcu)
 
 target_sources(app PRIVATE src/main.c)
+
+# Link any custom library to the application
+# target_link_libraries(app PRIVATE smart_roomba_lib)

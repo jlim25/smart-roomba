@@ -1,7 +1,15 @@
 # SPDX-License-Identifier: Apache-2.0
-set(BOARD stm32f4_disco)
-
 cmake_minimum_required(VERSION 3.20.0)
+
+# Name the project
+project (
+    smart_roomba_mcu
+    DESCRIPTION "Real-time control for Smart Roomba"
+    VERSION 0.1.0
+    LANGUAGES C
+)
+
+set(BOARD stm32f4_disco)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(smart_roomba_mcu)

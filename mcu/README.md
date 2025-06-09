@@ -46,9 +46,9 @@ The Smart Roomba MCU application controls the low-level hardware functions of th
    west build -b <your_board_name>
    ```
    
-   For example, to build for an STM32 Nucleo board:
+   For example, to build for an STM32 Discovery board:
    ```bash
-   west build -b nucleo_f411re
+   west build -b stm32f4_disco
    ```
 
 3. **Flash to hardware**:

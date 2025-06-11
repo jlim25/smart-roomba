@@ -5,7 +5,6 @@ set(BOARD stm32f4_disco)
 
 # Include extra/custom modules via kconfig (libraries)
 # set(ZEPHYR_EXTRA_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../modules/moduleName")
-
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 # Name the project

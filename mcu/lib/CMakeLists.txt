@@ -9,4 +9,4 @@ target_include_directories(
 )
 
 # Required to set Zephyr compile options (e.g. for ARM)
-target_link_libraries(hello_lib PRIVATE zephyr_interface)
+target_link_libraries(smart_roomba_lib PRIVATE zephyr_interface)

@@ -9,7 +9,7 @@
             "type": "cortex-debug",
             "runToEntryPoint": "main",
             "servertype": "openocd",
-            "armToolchainPath": "/home/jacky/zephyr-sdk-0.17.1/arm-zephyr-eabi/bin",
+            "armToolchainPath": "${env:ZEPHYR_TOOLCHAIN_PATH}",
             "configFiles": [
                 "/usr/share/openocd/scripts/interface/stlink.cfg",
                 "/usr/share/openocd/scripts/target/stm32f4x.cfg"

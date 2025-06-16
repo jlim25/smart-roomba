@@ -55,8 +55,9 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
     message(STATUS "✅ Application NDEBUG macro enabled")
 endif()
 
-# Optional: Add build info for debugging
+# Generate a Unix timestamp for the build
+string(TIMESTAMP BUILD_TIMESTAMP_UNIX "%s")
 target_compile_definitions(app PRIVATE 
     BUILD_TYPE="${CMAKE_BUILD_TYPE}"
-    BUILD_TIMESTAMP="${CMAKE_CURRENT_LIST_DIR}"
+    BUILD_TIMESTAMP="${BUILD_TIMESTAMP_UNIX}"
 )

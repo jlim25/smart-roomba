@@ -7,7 +7,7 @@
             "command": "bash",
             "args": [
                 "-c",
-                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Debug"
+                "source ${workspaceFolder}/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Debug"
             ],
             "group": {
                 "kind": "build",
@@ -30,7 +30,7 @@
             "command": "bash",
             "args": [
                 "-c",
-                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Release"
+                "source ${workspaceFolder}/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Release"
             ],
             "group": "build",
             "presentation": {
@@ -50,7 +50,7 @@
             "command": "bash",
             "args": [
                 "-c",
-                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -p -- -DCMAKE_BUILD_TYPE=Debug"
+                "source ${workspaceFolder}/.venv/bin/activate && west build -p -- -DCMAKE_BUILD_TYPE=Debug"
             ],
             "group": "build",
             "presentation": {

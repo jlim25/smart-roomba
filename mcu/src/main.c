@@ -59,26 +59,27 @@ int main(void)
 	int ret;
 	static int led_pattern = 0;
 
-	LOG_INF("Smart Roomba MCU starting up...");
 	LOG_INF("Initializing all LEDs on STM32F4 Discovery board");
 
 	/* Initialize all LEDs */
 	for (int i = 0; i < NUM_LEDS; i++) {
 		if (!gpio_is_ready_dt(&leds[i])) {
 			LOG_ERR("LED %d device not ready", i);
-			return 0;
+			return -ENODEV;
 		}
 
 		ret = gpio_pin_configure_dt(&leds[i], GPIO_OUTPUT_ACTIVE);
 		if (ret < 0) {
 			LOG_ERR("Failed to configure LED %d pin", i);
-			return 0;
+			return ret;
 		}
 		
 		LOG_INF("LED %d initialized successfully", i);
 	}
 
 	LOG_INF("Smart Roomba MCU initialization complete - all LEDs ready");
+	
+	const char* led_names[] = {"Green", "Orange", "Red", "Blue"};
 
 	while (1) {
 		/* Turn off all LEDs first */
@@ -89,7 +90,6 @@ int main(void)
 		/* Create a rotating pattern - turn on LEDs one by one */
 		gpio_pin_set_dt(&leds[led_pattern], 1);
 		
-		const char* led_names[] = {"Green", "Orange", "Red", "Blue"};
 		LOG_INF("LED pattern: %s LED ON", led_names[led_pattern]);
 		
 		led_pattern = (led_pattern + 1) % NUM_LEDS;

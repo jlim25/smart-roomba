@@ -113,13 +113,3 @@ Release build
 ```
 west build -- -DCMAKE_BUILD_TYPE=Release
 ```
-
-Release with debug info (for profiling)
-```
-west build -- -DCMAKE_BUILD_TYPE=RelWithDebInfo
-```
-
-Minimum size release
-```
-west build -- -DCMAKE_BUILD_TYPE=MinSizeRel
-```

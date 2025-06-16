@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Debug",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "source ${workspaceFolder}/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+            "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${workspaceFolder}/smart-roomba/mcu"
+            }
+        },
+        {
+            "label": "Build Release",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "source ${workspaceFolder}/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Release"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${workspaceFolder}/smart-roomba/mcu"
+            }
+        },
+        {
+            "label": "Clean and Build Debug",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "source ${workspaceFolder}/.venv/bin/activate && west build -p -- -DCMAKE_BUILD_TYPE=Debug"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${workspaceFolder}/smart-roomba/mcu"
+            }
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+manifest:
+  version: "0.13"
+
+  defaults:
+    remote: upstream
+
+  remotes:
+    - name: upstream
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: upstream
+      repo-path: zephyr
+      revision: main
+      import: true
+
+  self:
+    path: smart-roomba/mcu

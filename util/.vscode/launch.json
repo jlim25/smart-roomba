@@ -19,7 +19,7 @@
                 "load",
                 "monitor reset halt"
             ],
-            "preLaunchTask": "Build Zephyr Project",
+            "preLaunchTask": "Build Debug",
             "showDevDebugOutput": "parsed"
         }
     ]

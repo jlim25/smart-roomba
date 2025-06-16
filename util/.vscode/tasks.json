@@ -2,12 +2,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Zephyr Project",
+            "label": "Build Debug",
             "type": "shell",
             "command": "bash",
             "args": [
                 "-c",
-                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build"
+                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Debug"
             ],
             "group": {
                 "kind": "build",
@@ -16,23 +16,21 @@
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": false,
+            "focus": false,
                 "panel": "shared"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "problemMatcher": ["$gcc"],
             "options": {
                 "cwd": "${workspaceFolder}/smart-roomba/mcu"
             }
         },
         {
-            "label": "Clean and Build",
+            "label": "Build Release",
             "type": "shell",
             "command": "bash",
             "args": [
                 "-c",
-                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -p always"
+                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -- -DCMAKE_BUILD_TYPE=Release"
             ],
             "group": "build",
             "presentation": {
@@ -41,20 +39,18 @@
                 "focus": false,
                 "panel": "shared"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "problemMatcher": ["$gcc"],
             "options": {
                 "cwd": "${workspaceFolder}/smart-roomba/mcu"
             }
         },
         {
-            "label": "Flash",
+            "label": "Clean and Build Debug",
             "type": "shell",
             "command": "bash",
             "args": [
                 "-c",
-                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west flash"
+                "source /home/jacky/git/zephyr-workspace/.venv/bin/activate && west build -p -- -DCMAKE_BUILD_TYPE=Debug"
             ],
             "group": "build",
             "presentation": {
@@ -63,6 +59,7 @@
                 "focus": false,
                 "panel": "shared"
             },
+            "problemMatcher": ["$gcc"],
             "options": {
                 "cwd": "${workspaceFolder}/smart-roomba/mcu"
             }

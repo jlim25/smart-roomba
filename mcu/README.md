@@ -96,12 +96,30 @@ You can extend it by adding:
 ### General Style
 Try to follow Linux kernel coding style. See [link](https://docs.zephyrproject.org/latest/contribute/style/code.html). Also, [general coding style](https://docs.zephyrproject.org/latest/contribute/style/index.html).
 
-### Debugging
 
-Enable debug logging by setting in `prj.conf`:
+### How to Setup Debugging?
+Copy `.vscode` to your workspace. There should be `launch.json`, `openocd.cfg`, and `tasks.json` files.
+
+#### DEBUG vs. CONFIG_DEBUG
+`CONFIG_DEBUG` is a definition provided by Zephyr OS. The way this is used in the project is for Zephyr kernel/system-level debugging. For any application-level debugging, use `DEBUG`.
+
+### Building
+Debug build
 ```
-CONFIG_LOG_DEFAULT_LEVEL=4
+west build -- -DCMAKE_BUILD_TYPE=Debug
 ```
 
-View logs through the serial console or debugging interface.
+Release build  
+```
+west build -- -DCMAKE_BUILD_TYPE=Release
+```
 
+Release with debug info (for profiling)
+```
+west build -- -DCMAKE_BUILD_TYPE=RelWithDebInfo
+```
+
+Minimum size release
+```
+west build -- -DCMAKE_BUILD_TYPE=MinSizeRel
+```

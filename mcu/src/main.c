@@ -38,6 +38,24 @@ static const struct gpio_dt_spec leds[] = {
 
 int main(void)
 {
+    // Always available - Zephyr's logging system
+    LOG_INF("Smart Roomba MCU starting...");
+    
+#ifdef DEBUG
+    // Only in CMake Debug builds - your custom debug code for application level code
+    LOG_DBG("Debug build - enabling verbose diagnostics");
+    // Custom debug initialization
+    // debug_print_system_info();
+    // enable_performance_monitoring();
+#endif
+
+#ifdef CONFIG_DEBUG  
+    // Only when Zephyr debug is enabled - system debug.
+	// Used for kernel debugging, assertions, etc.
+    LOG_DBG("Zephyr debug features enabled");
+    // This will show thread info, kernel assertions, etc.
+#endif
+
 	int ret;
 	static int led_pattern = 0;
 

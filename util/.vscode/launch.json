@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug STM32F407",
+            "cwd": "${workspaceFolder}/smart-roomba/mcu",
+            "executable": "${workspaceFolder}/smart-roomba/mcu/build/zephyr/zephyr.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "armToolchainPath": "/home/jacky/zephyr-sdk-0.17.1/arm-zephyr-eabi/bin",
+            "configFiles": [
+                "/usr/share/openocd/scripts/interface/stlink.cfg",
+                "/usr/share/openocd/scripts/target/stm32f4x.cfg"
+            ],
+            "preLaunchCommands": [
+                "monitor reset halt",
+                "load",
+                "monitor reset halt"
+            ],
+            "preLaunchTask": "Build Zephyr Project",
+            "showDevDebugOutput": "parsed"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+// Instruction: Change <user> to your username in the path below
+// If you have installed the Zephyr SDK in a different location, change the path accordingly.
+{
+  "zephyr.sdk.path": "/home/<user>/zephyr-sdk-0.17.1"
+}

@@ -38,6 +38,7 @@ The Smart Roomba MCU application controls the low-level hardware functions of th
    cd /home/jacky/git/zephyr-workspace
    west init --local smart-roomba/mcu
    west update
+   source .venv/bin/activate
    ```
 
 2. **Build for your target board**:
@@ -98,7 +99,9 @@ Try to follow Linux kernel coding style. See [link](https://docs.zephyrproject.o
 
 
 ### How to Setup Debugging?
-Copy `.vscode` to your workspace. There should be `launch.json`, `openocd.cfg`, and `tasks.json` files.
+1. Copy `.vscode` to your workspace. There should be `launch.json`, `openocd.cfg`, `settings.json` and `tasks.json` files.
+
+2. Open `settings.json` and modify the path to Zephyr SDK if it is different from the default location. 
 
 #### DEBUG vs. CONFIG_DEBUG
 `CONFIG_DEBUG` is a definition provided by Zephyr OS. The way this is used in the project is for Zephyr kernel/system-level debugging. For any application-level debugging, use `DEBUG`.

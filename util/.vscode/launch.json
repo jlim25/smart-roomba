@@ -9,7 +9,8 @@
             "type": "cortex-debug",
             "runToEntryPoint": "main",
             "servertype": "openocd",
-            "armToolchainPath": "${env:ZEPHYR_TOOLCHAIN_PATH}",
+            "armToolchainPath": "${config:zephyr.sdk.path}/arm-zephyr-eabi/bin",
+            "gdbPath": "${config:zephyr.sdk.path}/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
             "configFiles": [
                 "/usr/share/openocd/scripts/interface/stlink.cfg",
                 "/usr/share/openocd/scripts/target/stm32f4x.cfg"

@@ -1,6 +1,6 @@
 # Smart Roomba MCU Application
 
-This is the microcontroller firmware for the Smart Roomba project, built on the Zephyr RTOS.
+This is the microcontroller firmware for the Smart Roomba project, built on the Zephyr RTOS (4.1.0).
 
 ## Overview
 
@@ -30,6 +30,13 @@ The Smart Roomba MCU application controls the low-level hardware functions of th
 | Device Tree Compiler (DTC)   | 1.7.0   |
 | West     | Latest  |
 | Zephyr SDK | Latest |
+
+## Environment Setup
+A Linux system is recommended to work on this project.
+1. Modify the user's groups to include dialout.
+   ```bash
+   sudo usermod -a -G dialout $USER
+   ```
 
 ### Building the Application
 
@@ -74,13 +81,21 @@ The Smart Roomba MCU application controls the low-level hardware functions of th
 ```
 mcu/
 ├── CMakeLists.txt          # Build configuration
-├── prj.conf               # Kconfig settings
-├── app.overlay            # Device tree overlay
-├── VERSION                # Version information
-├── west.yml              # West manifest
-├── README.md             # This file
+├── prj.conf                # Kconfig settings / build-time feature flags
+├── app.overlay             # Device tree overlay (describes the hardware)
+├── VERSION                 # Version information
+├── west.yml                # West manifest
+├── README.md               # This file
+├── VERSION
 └── src/
-    └── main.c            # Main application code
+    └── main.c              # Main application code
+└── lib/                    # Custom library to be used via kconfig
+    └── inc/
+    └── src/
+└── boards/                 # Hardware config files
+    └── stm32f4_disco.conf
+└── build/                  # Build artificats (not tracked)
+└── conf/                   # Contains debug and release build configurations
 ```
 
 ### Development

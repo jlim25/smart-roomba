@@ -1,5 +1,6 @@
 # Create the library target
-add_library(smart_roomba_lib STATIC src/lib_motor.c)
+FILE(GLOB lib_sources src/*.c)
+add_library(smart_roomba_lib STATIC ${lib_sources})
 
 # Add the library's header file(s)
 target_include_directories(

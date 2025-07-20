@@ -41,7 +41,7 @@ int main(void)
     // Always available - Zephyr's logging system
     LOG_INF("Smart Roomba MCU starting...");
     
-#ifdef DEBUG
+#ifdef DEBUG // This is defined in the CMakeLists.txt for debug builds
     // Only in CMake Debug builds - your custom debug code for application level code
     LOG_DBG("Debug build - enabling verbose diagnostics");
     // Custom debug initialization
@@ -49,7 +49,7 @@ int main(void)
     // enable_performance_monitoring();
 #endif
 
-#ifdef CONFIG_DEBUG  
+#ifdef CONFIG_DEBUG  // This is defined in prj.conf for debug builds
     // Only when Zephyr debug is enabled - system debug.
 	// Used for kernel debugging, assertions, etc.
     LOG_DBG("Zephyr debug features enabled");
@@ -95,6 +95,7 @@ int main(void)
 		led_pattern = (led_pattern + 1) % NUM_LEDS;
 		
 		k_msleep(SLEEP_TIME_MS);
+		// k_sleep(K_FOREVER); // main loop should be sleeping forever
 	}
 
 	return 0;

@@ -40,7 +40,9 @@ project (
     LANGUAGES C
 )
 
-target_sources(app PRIVATE src/main.c)
+# Add your C source files here
+FILE(GLOB app_sources src/*.c)
+target_sources(app PRIVATE ${app_sources})
 
 # =============================================================================
 # APPLICATION-LEVEL DEBUG MACROS

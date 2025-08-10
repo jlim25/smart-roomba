@@ -1,0 +1,13 @@
+# This yaml file is required for Twister
+tests:
+  roomba.fsm.basic:
+    platform_allow:
+      - native_sim
+    integration_platforms:
+      - native_sim
+    harness: ztest
+    tags: 
+      - fsm 
+      - events
+      - unit_test
+    timeout: 60

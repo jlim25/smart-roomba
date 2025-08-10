@@ -14,15 +14,6 @@
 
 LOG_MODULE_REGISTER(state_machine, LOG_LEVEL_DBG); // Change to LOG_LEVEL_DBG for later
 
-/* Define state enum */
-typedef enum {
-    STATE_IDLE,
-    STATE_ACTIVE,   // Following Pi's command
-    STATE_FAULT,
-    STATE_AVOIDING,
-    STATE_MAX
-} robot_state_t;
-
 /* FSM context */
 struct robot {
     struct smf_ctx ctx;
@@ -32,6 +23,7 @@ struct robot {
     uint32_t events;
     bool motors_on;
     bool vacuum_on;
+    robot_state_t current_state; 
 };
 
 /* Define FSM instance */
@@ -58,6 +50,7 @@ static void idle_run(void *o)
     if (r->events & EVT_PI_START) {
         LOG_INF("In idle_run function\n");
         smf_set_state(SMF_CTX(r), &state_table[STATE_ACTIVE]);
+        r->current_state = STATE_ACTIVE; // Update current state
     }
 }
 
@@ -87,17 +80,20 @@ static void active_run(void *o)
     if (r->events & EVT_OBSTACLE) {
         LOG_WRN("SAFETY: Obstacle detected - overriding Pi");
         smf_set_state(SMF_CTX(r), &state_table[STATE_AVOIDING]);
+        r->current_state = STATE_AVOIDING; // Update current state
         // TODO: how will the pi handle this?
     }
 
     if (r->events & EVT_PI_STOP) {
         LOG_INF("In active_run function\n");
         smf_set_state(SMF_CTX(r), &state_table[STATE_IDLE]);
+        r->current_state = STATE_IDLE; // Update current state
     }
 
     if (r->events & EVT_LOW_BATTERY) {
         LOG_WRN("BATTERY: Low battery - returning to dock");
         smf_set_state(SMF_CTX(r), &state_table[STATE_IDLE]);
+        r->current_state = STATE_IDLE; // Update current state
     }
 }
 
@@ -126,11 +122,13 @@ static void avoiding_run(void *o)
     if (r->events & EVT_OBSTACLE_CLEAR) {
         LOG_INF("Obstacle cleared - returning control to Pi");
         smf_set_state(SMF_CTX(r), &state_table[STATE_IDLE]);
+        r->current_state = STATE_IDLE; // Update current state
     }
     /* Pi can override if it has a plan */
     if (r->events & EVT_PI_START) {
         LOG_INF("Pi override - resuming movement");
         smf_set_state(SMF_CTX(r), &state_table[STATE_ACTIVE]);
+        r->current_state = STATE_ACTIVE; // Update current state
     }
 }
 
@@ -191,3 +189,23 @@ void fsm_thread(void)
 
 /* ---------- Main Entry ---------- */
 K_THREAD_DEFINE(fsm_tid, 1024, fsm_thread, NULL, NULL, NULL, 5, 0, 0);  // This defines the thread and starts it immediately
+
+#ifdef CONFIG_TEST
+int sm_test_get_state(void)
+{
+    return robo_fsm.current_state;
+}
+
+void sm_test_init(void)
+{
+    memset(&robo_fsm, 0, sizeof(robo_fsm));
+    k_event_init(&robo_fsm.evt);
+    smf_set_initial(SMF_CTX(&robo_fsm), &state_table[STATE_IDLE]);
+}
+
+void sm_test_run_step(void)
+{
+    /* consume one batch of events (if any) and run one SMF step */
+    (void)smf_run_state(SMF_CTX(&robo_fsm));
+}
+#endif

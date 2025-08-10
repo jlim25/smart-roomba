@@ -10,3 +10,6 @@ venv/
 
 # === Build artifacts ===
 build/
+
+# === Test artifacts ===
+twister*

@@ -44,6 +44,9 @@ project (
 FILE(GLOB app_sources src/*.c)
 target_sources(app PRIVATE ${app_sources})
 
+# Add include directory directly instead of using header files
+target_include_directories(app PRIVATE inc)
+
 # =============================================================================
 # APPLICATION-LEVEL DEBUG MACROS
 # =============================================================================

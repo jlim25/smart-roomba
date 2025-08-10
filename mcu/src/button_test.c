@@ -13,9 +13,6 @@
 
 LOG_MODULE_REGISTER(button_test, LOG_LEVEL_DBG);
 
-/* Import state machine events */
-extern void robot_post_event(uint32_t event);
-
 /* Button definitions for STM32F4-DISC1 */
 #define USER_BUTTON_NODE DT_ALIAS(sw0)
 static const struct gpio_dt_spec button = GPIO_DT_SPEC_GET_OR(USER_BUTTON_NODE, gpios, {0});

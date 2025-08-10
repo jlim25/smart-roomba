@@ -178,6 +178,7 @@ void fsm_thread(void)
         robo_fsm.events = k_event_wait(&robo_fsm.evt, ALL_EVENTS, /*reset=*/true, K_FOREVER);
         LOG_DBG("FSM thread woke up with events: 0x%08X", robo_fsm.events);
         ret = smf_run_state(SMF_CTX(&robo_fsm));
+        robo_fsm.events = 0;
 
         if (ret) {
             LOG_ERR("State machine error: %d", ret);

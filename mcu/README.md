@@ -131,3 +131,9 @@ Release build
 ```
 west build -- -DCMAKE_BUILD_TYPE=Release
 ```
+
+## Testing
+To run testing, Twister (comes with Zephyr) is used. Test units are structured based on modules.
+```
+west twister -T tests/<module_name>
+```

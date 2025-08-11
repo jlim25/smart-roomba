@@ -80,4 +80,4 @@ int button_init(void)
 }
 
 /* Initialize button on startup */
-SYS_INIT(button_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY); // this function is executed on start up
+// SYS_INIT(button_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY); // this function is executed on start up

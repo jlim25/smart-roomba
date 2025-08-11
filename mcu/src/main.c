@@ -13,7 +13,7 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/logging/log.h>
 
-LOG_MODULE_REGISTER(smart_roomba, LOG_LEVEL_DBG);
+LOG_MODULE_REGISTER(smart_roomba, LOG_LEVEL_INF);
 
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   1000
@@ -90,7 +90,7 @@ int main(void)
 		/* Create a rotating pattern - turn on LEDs one by one */
 		gpio_pin_set_dt(&leds[led_pattern], 1);
 		
-		LOG_INF("LED pattern: %s LED ON", led_names[led_pattern]);
+		LOG_DBG("LED pattern: %s LED ON", led_names[led_pattern]);
 		
 		led_pattern = (led_pattern + 1) % NUM_LEDS;
 		

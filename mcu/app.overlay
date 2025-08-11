@@ -16,6 +16,7 @@
 		/* Example: motor-left = &pwm1; */
 		/* Example: motor-right = &pwm2; */
 		/* Example: sensor-distance = &i2c1; */
+		counter0 = &tim2_counter;  /* Use TIM2 as counter0 */
 	};
 
 	/* Application-specific GPIO configurations can go here */
@@ -28,4 +29,15 @@
 		};
 	};
 	*/
+};
+
+&timers2 {
+	status = "okay";
+	st,prescaler = <83>; // 84 MHz
+
+	tim2_counter: counter {
+		compatible = "st,stm32-counter";
+		status = "okay";
+		label = "COUNTER_2";       /* or any label you like */
+	};
 };
